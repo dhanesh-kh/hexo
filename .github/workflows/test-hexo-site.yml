@@ -1,4 +1,4 @@
-name: Test Hexo Site
+name: Test Hexo Site with Playwright
 
 on:
   push:
@@ -13,15 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the Hexo website repository
+      # Checkout the repository containing the Hexo site
       - name: Checkout Hexo repository
         uses: actions/checkout@v3
 
-      # Install Node.js (updated to v18)
-      - name: Install Node.js
+      # Set up Node.js (version 18 as required by Playwright)
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Updated to Node.js v18 as required by Playwright
+          node-version: '18'
 
       # Install Hexo CLI and dependencies
       - name: Install Hexo and dependencies
@@ -30,36 +30,44 @@ jobs:
           npm install hexo-cli -g
           npm install
 
-      # Generate the static website
+      # Generate the Hexo static site
       - name: Generate Hexo site
         run: |
           hexo generate
 
-      # Install and start a simple HTTP server to serve the generated site
-      - name: Start HTTP server
+      # Install and start a simple HTTP server to serve the generated Hexo site
+      - name: Start HTTP server to serve Hexo site
         run: |
           npm install -g http-server
           http-server ./public -p 4000 &
 
-      # Wait for the server to start
-      - name: Wait for server to start
-        run: sleep 5
+      # Wait for the HTTP server to start
+      - name: Wait for the HTTP server to start
+        run: sleep 10  # Adjusted wait time for server start
 
-      # Clone the Playwright test repository
+      # Clone the Playwright test repository (if different)
       - name: Clone Playwright test repository
         run: |
-          git clone https://github.com/dhanesh-kh/playwright.git
+          git clone https://github.com/dhanesh-kh/playwright.git  # Replace with actual Playwright test repo if needed
           cd playwright
           npm install
 
-      # Install Playwright browsers
-      - name: Install Playwright browsers
+      # Install Playwright browsers and dependencies
+      - name: Install Playwright and browsers
         run: |
           npm install @playwright/test
           npx playwright install
 
-      # Run the Playwright tests against the generated Hexo site
+      # Run Playwright tests against the generated Hexo site
       - name: Run Playwright tests
         run: |
           cd playwright
           npx playwright test --config=./playwright.config.js
+
+      # Display test artifacts in case of failure
+      - name: Upload Playwright artifacts
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-artifacts
+          path: test-results/
