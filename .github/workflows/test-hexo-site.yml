@@ -38,11 +38,12 @@ jobs:
       # Start the Hexo server to serve the generated site
       - name: Start Hexo server
         run: |
-          nohup hexo server -p 4000 &
+          cd ./readme
+          hexo server -p 4000 &
 
       # Wait for the Hexo server to start
       - name: Wait for the Hexo server to start
-        run: sleep 5  # Adjusted wait time for server start
+        run: sleep 10  # Adjusted wait time for server start
 
       # Check if the Hexo server is up and running
       - name: Check if Hexo server is up
