@@ -31,7 +31,9 @@ jobs:
 
       # Generate the static website
       - name: Generate Hexo site
-        run: hexo generate
+        run: | 
+            hexo generate
+            hexo s
 
       # Clone the Playwright test repository
       - name: Clone Playwright test repository
