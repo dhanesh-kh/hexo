@@ -15,7 +15,7 @@ jobs:
     env:
       NODE_VERSION: '18'
       HEXO_PORT: 4000
-      PLAYWRIGHT_REPO: 'https://github.com/dhanesh-kh/playwright.git'  # Replace with actual Playwright test repo if needed
+      PLAYWRIGHT_REPO: 'https://github.com/dhanesh-kh/playwright.git'
       PLAYWRIGHT_CONFIG: './playwright.config.js'
 
     steps:
@@ -26,12 +26,10 @@ jobs:
       # Set up Node.js and install dependencies (both Hexo and Playwright)
       - name: Set up environment and install dependencies
         run: |
-          # Set up Node.js
           npm install -g hexo-cli
           cd ./readme
           npm install
 
-          # Install Playwright dependencies
           npx playwright install-deps
 
       # Generate the site and start the Hexo server
