@@ -35,12 +35,28 @@ jobs:
         run: |
           hexo generate
 
+      # Install missing dependencies
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwoff2-dev \
+            libvpx-dev \
+            libevent-dev \
+            libopus-dev \
+            libgstreamer1.0-dev \
+            libgstreamer-plugins-base1.0-dev \
+            libharfbuzz-dev \
+            libglib2.0-dev \
+            libx11-xcb-dev \
+            libx264-dev
+
       # Install and start a simple HTTP server to serve the generated site
       - name: Start HTTP server
         run: |
           npm install -g http-server
           http-server ./public -p 4000 &
-          
+
       # Wait for the server to start
       - name: Wait for server to start
         run: sleep 5
@@ -55,7 +71,7 @@ jobs:
       # Install Playwright browsers
       - name: Install Playwright browsers
         run: |
-          npm init playwright@latest
+          npm install @playwright/test
           npx playwright install
 
       # Run the Playwright tests against the generated Hexo site
@@ -63,5 +79,3 @@ jobs:
         run: |
           cd playwright
           npx playwright test --config=./playwright.config.js
-          
-      # Optionally, you can add steps to deploy the Hexo site after testing
