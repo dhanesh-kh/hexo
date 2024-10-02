@@ -17,12 +17,13 @@ jobs:
       - name: Checkout Hexo repository
         uses: actions/checkout@v3
 
-      # Install Hexo CLI and dependencies
+      # Install Node.js (updated to v18)
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Specify the Node.js version you use
+          node-version: '18'  # Updated to Node.js v18 as required by Playwright
 
+      # Install Hexo CLI and dependencies
       - name: Install Hexo and dependencies
         run: |
           cd ./readme
@@ -54,7 +55,6 @@ jobs:
       # Install Playwright browsers
       - name: Install Playwright browsers
         run: |
-          npm install
           npx playwright install
 
       # Run the Playwright tests against the generated Hexo site
@@ -62,5 +62,5 @@ jobs:
         run: |
           cd playwright
           npx playwright test --config=./playwright.config.js
-
+          
       # Optionally, you can add steps to deploy the Hexo site after testing
