@@ -51,6 +51,11 @@ jobs:
           cd playwright
           npm install
 
+      # Install Playwright browsers
+      - name: Install Playwright browsers
+        run: |
+          npx playwright install
+
       # Run the Playwright tests against the generated Hexo site
       - name: Run Playwright tests
         run: |
