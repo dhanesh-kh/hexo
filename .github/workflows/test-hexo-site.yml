@@ -35,22 +35,6 @@ jobs:
         run: |
           hexo generate
 
-      # Install missing dependencies
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libwoff2-dev \
-            libvpx-dev \
-            libevent-dev \
-            libopus-dev \
-            libgstreamer1.0-dev \
-            libgstreamer-plugins-base1.0-dev \
-            libharfbuzz-dev \
-            libglib2.0-dev \
-            libx11-xcb-dev \
-            libx264-dev
-
       # Install and start a simple HTTP server to serve the generated site
       - name: Start HTTP server
         run: |
