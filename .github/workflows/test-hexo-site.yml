@@ -55,6 +55,7 @@ jobs:
       # Install Playwright browsers
       - name: Install Playwright browsers
         run: |
+          npm init playwright@latest
           npx playwright install
 
       # Run the Playwright tests against the generated Hexo site
