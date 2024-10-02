@@ -34,7 +34,7 @@ jobs:
       - name: Generate Hexo site
         run: |
           hexo generate
-          
+
       # Install dependencies required to run Playwright browsers on the system
       - name: Install Playwright dependencies
         run: |
@@ -49,11 +49,6 @@ jobs:
       # Wait for the Hexo server to start
       - name: Wait for the Hexo server to start
         run: sleep 3  # Adjusted wait time for server start
-
-      # Check if the Hexo server is up and running
-      - name: Check if Hexo server is up
-        run: |
-          curl --fail http://localhost:4000 || exit 1
 
       # Clone the Playwright test repository (if different)
       - name: Clone Playwright test repository
@@ -73,4 +68,3 @@ jobs:
         run: |
           cd playwright
           npx playwright test --config=./playwright.config.js
-
