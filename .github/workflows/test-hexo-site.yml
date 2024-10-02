@@ -35,15 +35,19 @@ jobs:
         run: |
           hexo generate
 
-      # Install and start a simple HTTP server to serve the generated Hexo site
-      - name: Start HTTP server to serve Hexo site
+      # Start the Hexo server to serve the generated site
+      - name: Start Hexo server
         run: |
-          npm install -g http-server
-          http-server ./public -p 4000 &
+          nohup hexo server -p 4000 &
 
-      # Wait for the HTTP server to start
-      - name: Wait for the HTTP server to start
-        run: sleep 10  # Adjusted wait time for server start
+      # Wait for the Hexo server to start
+      - name: Wait for the Hexo server to start
+        run: sleep 5  # Adjusted wait time for server start
+
+      # Check if the Hexo server is up and running
+      - name: Check if Hexo server is up
+        run: |
+          curl --fail http://localhost:4000 || exit 1
 
       # Clone the Playwright test repository (if different)
       - name: Clone Playwright test repository
@@ -64,10 +68,3 @@ jobs:
           cd playwright
           npx playwright test --config=./playwright.config.js
 
-      # Display test artifacts in case of failure
-      - name: Upload Playwright artifacts
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-artifacts
-          path: test-results/
