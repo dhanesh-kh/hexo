@@ -43,7 +43,7 @@ jobs:
       # Run the Playwright tests against the generated Hexo site
       - name: Run Playwright tests
         run: |
-          cd playwright-test-repo
+          cd playwright
           npx playwright test --config=./playwright.config.js
 
       # Optionally, you can add steps to deploy the Hexo site after testing
