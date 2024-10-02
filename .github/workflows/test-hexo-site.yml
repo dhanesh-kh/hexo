@@ -31,9 +31,18 @@ jobs:
 
       # Generate the static website
       - name: Generate Hexo site
-        run: | 
-            hexo generate
-            hexo s
+        run: |
+          hexo generate
+
+      # Install and start a simple HTTP server to serve the generated site
+      - name: Start HTTP server
+        run: |
+          npm install -g http-server
+          http-server ./public -p 4000 &
+          
+      # Wait for the server to start
+      - name: Wait for server to start
+        run: sleep 5
 
       # Clone the Playwright test repository
       - name: Clone Playwright test repository
