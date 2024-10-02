@@ -34,6 +34,11 @@ jobs:
       - name: Generate Hexo site
         run: |
           hexo generate
+          
+      # Install dependencies required to run Playwright browsers on the system
+      - name: Install Playwright dependencies
+        run: |
+          npx playwright install-deps
 
       # Start the Hexo server to serve the generated site
       - name: Start Hexo server
@@ -43,7 +48,7 @@ jobs:
 
       # Wait for the Hexo server to start
       - name: Wait for the Hexo server to start
-        run: sleep 10  # Adjusted wait time for server start
+        run: sleep 3  # Adjusted wait time for server start
 
       # Check if the Hexo server is up and running
       - name: Check if Hexo server is up
