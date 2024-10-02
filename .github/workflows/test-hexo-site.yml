@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set up Node.js and install dependencies (both Hexo and Playwright)
+      # Set up Node.js, install Hexo and Playwright dependencies
       - name: Set up environment and install dependencies
         run: |
           npm install -g hexo-cli
@@ -31,6 +31,7 @@ jobs:
           npm install
 
           npx playwright install-deps
+          npx playwright install
 
       # Generate the site and start the Hexo server
       - name: Generate site and start Hexo server
@@ -43,20 +44,10 @@ jobs:
       - name: Wait for Hexo server
         run: sleep 3
 
-      # Clone Playwright repository and install dependencies
-      - name: Clone Playwright and install dependencies
+      # Clone Playwright repository, install dependencies, and run tests
+      - name: Clone Playwright repository, install dependencies, and run tests
         run: |
           git clone $PLAYWRIGHT_REPO
           cd playwright
           npm install
-
-      # Install Playwright browsers
-      - name: Install Playwright browsers
-        run: |
-          npx playwright install
-
-      # Run Playwright tests
-      - name: Run Playwright tests
-        run: |
-          cd playwright
           npx playwright test --config=$PLAYWRIGHT_CONFIG
