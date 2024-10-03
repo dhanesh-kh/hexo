@@ -71,11 +71,15 @@ jobs:
       - name: Install Hexo and dependencies
         run: |
           npm install hexo-cli -g
+          cd ./readme
           npm install
 
       # Re-generate the static website (if necessary)
       - name: Generate Hexo site
-        run: hexo generate
+        run: |
+          cd ./readme
+          hexo generate
+          hexo server -p $HEXO_PORT &
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
