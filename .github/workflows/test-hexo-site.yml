@@ -3,10 +3,10 @@ name: Test Hexo Site with Playwright
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
+      - main
   pull_request:
     branches:
-      - main  # Trigger on pull request to the main branch
+      - main
 
 jobs:
   test:
@@ -19,32 +19,26 @@ jobs:
       PLAYWRIGHT_CONFIG: './playwright.config.js'
 
     steps:
-      # Checkout the repository containing the Hexo site
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set up Node.js, install Hexo and Playwright dependencies
-      - name: Set up environment and install dependencies
+      - name: Set up Hexo and install dependencies
         run: |
           npm install -g hexo-cli
           cd ./readme
           npm install
-
           npx playwright install-deps
           npx playwright install
 
-      # Generate the site and start the Hexo server
       - name: Generate site and start Hexo server
         run: |
           cd ./readme
           hexo generate
           hexo server -p $HEXO_PORT &
 
-      # Wait for the Hexo server to start
       - name: Wait for Hexo server
         run: sleep 3
 
-      # Clone Playwright repository, install dependencies, and run tests
       - name: Clone Playwright repository, install dependencies, and run tests
         run: |
           git clone $PLAYWRIGHT_REPO
@@ -54,41 +48,29 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: test  # Ensure deployment only happens if the tests pass
+    needs: test
     if: github.event_name == 'push'
 
     steps:
-      # Checkout the Hexo repository again (to prevent loss of state)
       - name: Checkout Hexo repository
         uses: actions/checkout@v3
 
-      # Set up Node.js environment
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'  # Make sure it matches your environment
-
-      # Install Hexo and dependencies
-      - name: Install Hexo and dependencies
+      - name: Set up Hexo and install dependencies
         run: |
-          npm install hexo-cli -g
+          npm install -g hexo-cli
           cd ./readme
           npm install
 
-      # Re-generate the static website (if necessary)
       - name: Generate Hexo site
         run: |
           cd ./readme
           hexo generate
 
-      # Add an empty .nojekyll file to prevent Jekyll processing
       - name: Add .nojekyll file
-        run: |
-          touch ./readme/public/.nojekyll
+        run: touch ./readme/public/.nojekyll
 
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
-          publish_dir: ./readme/public  # Hexo outputs the generated files to the 'public' directory.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./readme/public
