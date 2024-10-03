@@ -80,13 +80,15 @@ jobs:
           cd ./readme
           hexo generate
           hexo server -p $HEXO_PORT &
-
+      # Add an empty .nojekyll file to prevent Jekyll processing
+      - name: Add .nojekyll file
+        run: |
+          touch public/.nojekyll
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} 
           publish_dir: ./public  # Hexo outputs the generated files to the 'public' directory.
-      - name: Disable Jekyll
-        run: echo > public/.nojekyll
+      
         
