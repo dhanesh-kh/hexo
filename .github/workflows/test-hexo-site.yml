@@ -84,7 +84,7 @@ jobs:
       # Add an empty .nojekyll file to prevent Jekyll processing
       - name: Add .nojekyll file
         run: |
-          touch public/.nojekyll
+          touch ./readme/public/.nojekyll
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
