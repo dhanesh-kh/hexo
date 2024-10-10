@@ -29,9 +29,6 @@ jobs:
           npx playwright install-deps
           npx playwright install
 
-      - name: Initialize Git submodules
-        run: git submodule update --init --recursive
-
       - name: Generate site
         run: |
           hexo clean
@@ -76,9 +73,6 @@ jobs:
         run: |
           npm install -g hexo-cli
           npm install
-
-      - name: Initialize Git submodules
-        run: git submodule update --init --recursive
 
       - name: Generate Hexo site
         run: |
