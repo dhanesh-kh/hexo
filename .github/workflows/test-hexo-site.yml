@@ -31,12 +31,13 @@ jobs:
 
       - name: Install Hexo theme if missing
         run: |
-          if [ ! -d "themes/landscape" ]; then
-            git clone https://github.com/hexojs/hexo-theme-landscape themes/landscape
-          fi
+          git clone https://github.com/hexojs/hexo-theme-landscape themes/landscape
+          export THEME_DIR=themes/landscape
 
       - name: Generate site
-        run: hexo generate
+        run: |
+          hexo clean
+          hexo generate
 
       - name: Start Hexo server persistently
         run: |
