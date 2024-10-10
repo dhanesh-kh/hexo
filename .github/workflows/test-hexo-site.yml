@@ -32,7 +32,7 @@ jobs:
       - name: Generate site and start Hexo server
         run: |
           hexo generate
-          hexo server -p $HEXO_PORT &
+          npx serve -s public -l $HEXO_PORT &
 
       - name: Wait for Hexo server
         run: sleep 3
