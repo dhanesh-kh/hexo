@@ -55,15 +55,15 @@ follow the steps below to set them up:
 
 #### GitHub Setup
 
-- [Setting up GitHub](github_setup.md)  
+- [Setting up GitHub](github-setup)  
   Learn how to initialize your GitHub repository
   and manage your codebase using Git.
 
 #### Docker Setup
 
-- [Setting up Docker](docker_setup.md)  
+- [Setting up Docker](docker-setup)  
   Step-by-step guide to installing and configuring Docker.
-- [Docker Overview](docker.md)  
+- [Docker Overview](docker)  
   A general introduction to Docker and its core concepts.
 
 ---
@@ -73,11 +73,11 @@ follow the steps below to set them up:
 Foundational topics like operating systems, virtualization,
 and containerization.
 
-- [Kernel & Threads](kernel-thread.md)  
+- [Kernel & Threads](kernel-thread)  
   Deep dive into how the kernel manages threads in an operating system.
-- [Virtualization & Containerization](virtualization-containerization.md)  
+- [Virtualization & Containerization](virtualization-containerization)  
   Understanding the differences and use cases for virtualization vs. containerization.
-- [The 12-Factor App](12factorapp.md)  
+- [The 12-Factor App](12-factor-app)  
   Best practices for building scalable, maintainable,
   and portable applications following the 12-Factor methodology.
 
@@ -85,9 +85,9 @@ and containerization.
 
 Topics related to system architecture and scaling.
 
-- [Docker vs. Kubernetes](dockervskubernetes.md)  
+- [Docker vs. Kubernetes](docker-vs-kubernetes)  
   Comparison of Docker and Kubernetes in terms of container orchestration.
-- [Scaling](scaling.md)  
+- [Scaling](scaling)  
   Best practices and strategies for scaling applications efficiently.
 
 ### Business Function & Industry Relevance
@@ -95,10 +95,10 @@ Topics related to system architecture and scaling.
 Exploring the role of Docker and Kubernetes in
 driving business operations and enhancing industry practices.
 
-- [Docker's Business Contributions](docker_role_in_industry.md)  
+- [Docker's Business Contributions](docker-role-in-industry)  
   Overview of Docker's impact on the industry
   and its role in business applications.
-- [Kubernete's Business Contributions](kubernetes_role_in_industry.md)  
+- [Kubernete's Business Contributions](kubernetes-role-in-industry)  
   Understanding how Kubernetes contributes
   to industry scalability and business functions.
 
@@ -106,46 +106,10 @@ driving business operations and enhancing industry practices.
 
 ### Documentation & References
 
-- [Documentation](documentation.md)  
+- [Documentation](documentation)  
   Links to various resources related to the topics covered above.
 
 #### Contributors
 
 - Dhanesh Khemraj
 - Alvee Jalal
-
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
-
-## Quick Start
-
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)

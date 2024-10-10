@@ -1,8 +1,7 @@
 ---
-title: docker
+title: Docker Guide
 date: 2024-10-09 23:03:49
 ---
-# Docker Guide
 
 This guide provides an introduction to Docker,
 focusing on basic commands and usage.

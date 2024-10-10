@@ -1,8 +1,7 @@
 ---
-title: virtualization_containerization
+title: What is Virtualization?
 date: 2024-10-09 23:04:51
 ---
-# What is Virtualization?
 
 - Virtualization is creating a virtual copy of
 an entire hardware machine on your own machine.

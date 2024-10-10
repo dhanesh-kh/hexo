@@ -1,8 +1,7 @@
 ---
-title: kubernetes_role_in_industry
+title: Business Function & Industry Relevance
 date: 2024-10-09 23:04:39
 ---
-# Business Function & Industry Relevance
 
 ## Kubernete's Industry Relevance
 

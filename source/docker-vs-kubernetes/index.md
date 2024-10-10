@@ -1,8 +1,7 @@
 ---
-title: docker_vs_kubernetes
+title: What is Docker?
 date: 2024-10-09 23:04:15
 ---
-# What is Docker?
 
 - A platform where you can build, test, download,
 and deploy applications in containers.

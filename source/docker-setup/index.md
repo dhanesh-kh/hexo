@@ -1,8 +1,7 @@
 ---
-title: docker_setup
+title: Docker Setup
 date: 2024-10-09 23:04:08
 ---
-# Docker Setup
 
 Docker setup involves creating a Docker Hub account, installing Docker Desktop,
 and looking at prerequisites for Windows and/or macOS.

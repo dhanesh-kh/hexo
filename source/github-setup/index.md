@@ -1,8 +1,7 @@
 ---
-title: github_setup
+title: GitHub Setup
 date: 2024-10-09 23:04:25
 ---
-# GitHub Setup
 
 GitHub is a platform for version control and collaboration that allows you to
 manage and store your code repositories using Git.

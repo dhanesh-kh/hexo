@@ -1,8 +1,7 @@
 ---
-title: docker_role_in_industry
+title: Business Function & Industry Relevance
 date: 2024-10-09 23:04:01
 ---
-# Business Function & Industry Relevance
 
 ## Docker's Industry Relevance
 

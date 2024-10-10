@@ -1,8 +1,7 @@
 ---
-title: kernel_thread
+title: What is a Kernel?
 date: 2024-10-09 23:04:30
 ---
-# What is a Kernel?
 
 - The kernel is the core part of the operating system
 that controls the computer's hardware.
