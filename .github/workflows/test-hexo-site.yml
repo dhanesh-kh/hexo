@@ -29,10 +29,15 @@ jobs:
           npx playwright install-deps
           npx playwright install
 
+      - name: Update Hexo config for testing
+        run: |
+          sed -i 's|https://dhanesh-kh.github.io/hexo/|http://localhost:4000|g' _config.yml
+          sed -i 's|^root:.*|root: /|g' _config.yml
+
       - name: Generate site and start Hexo server
         run: |
           hexo generate
-          npx serve -s public -l $HEXO_PORT &
+          hexo server -p $HEXO_PORT &
 
       - name: Wait for Hexo server
         run: sleep 3
