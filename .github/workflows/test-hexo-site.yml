@@ -80,7 +80,9 @@ jobs:
           npm install
 
       - name: Generate Hexo site
-        run: hexo generate
+        run: |
+          hexo clean
+          hexo generate
 
       - name: Add .nojekyll file
         run: touch ./public/.nojekyll
