@@ -29,9 +29,8 @@ jobs:
           npx playwright install-deps
           npx playwright install
 
-      - name: Install Hexo theme if missing
-        run: |
-          export THEME_DIR=themes/landscape
+      - name: Initialize Git submodules
+        run: git submodule update --init --recursive
 
       - name: Generate site
         run: |
@@ -78,9 +77,8 @@ jobs:
           npm install -g hexo-cli
           npm install
 
-      - name: Install Hexo theme if missing
-        run: |
-          export THEME_DIR=themes/landscape
+      - name: Initialize Git submodules
+        run: git submodule update --init --recursive
 
       - name: Generate Hexo site
         run: |

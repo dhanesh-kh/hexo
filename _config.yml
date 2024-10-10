@@ -25,7 +25,6 @@ pretty_urls:
 menu:
   home: /
   about: /about
-  "12-Factor App": /12-factor-app
 
 # Directory
 source_dir: source
