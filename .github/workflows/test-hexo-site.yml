@@ -29,18 +29,22 @@ jobs:
           npx playwright install-deps
           npx playwright install
 
-      - name: Update Hexo config for testing
-        run: |
-          sed -i 's|https://dhanesh-kh.github.io/hexo/|http://localhost:4000|g' _config.yml
-          sed -i 's|^root:.*|root: /|g' _config.yml
+      - name: Generate site
+        run: hexo generate
 
-      - name: Generate site and start Hexo server
+      - name: Start Hexo server persistently
         run: |
-          hexo generate
-          hexo server -p $HEXO_PORT &
-
-      - name: Wait for Hexo server
-        run: sleep 3
+          nohup hexo server -p $HEXO_PORT > hexo_server.log 2>&1 &
+          sleep 5  # Give the server some time to start
+          
+      - name: Check if Hexo server is running
+        run: |
+          for i in {1..10}; do
+            curl -I http://localhost:4000/ && break
+            echo "Waiting for Hexo server to be ready..."
+            sleep 3
+          done
+        shell: bash
 
       - name: Clone Playwright repository, install dependencies, and run tests
         run: |
@@ -49,6 +53,10 @@ jobs:
           npm install
           npx playwright install
           npx playwright test --config=$PLAYWRIGHT_CONFIG
+
+      - name: Display Hexo server log (for debugging)
+        if: failure() # Show logs only if the test fails
+        run: cat hexo_server.log
 
   deploy:
     runs-on: ubuntu-latest
@@ -65,8 +73,7 @@ jobs:
           npm install
 
       - name: Generate Hexo site
-        run: |
-          hexo generate
+        run: hexo generate
 
       - name: Add .nojekyll file
         run: touch ./public/.nojekyll
