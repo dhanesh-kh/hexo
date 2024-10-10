@@ -31,7 +31,6 @@ jobs:
 
       - name: Install Hexo theme if missing
         run: |
-          git clone https://github.com/hexojs/hexo-theme-landscape themes/landscape
           export THEME_DIR=themes/landscape
 
       - name: Generate site
@@ -81,7 +80,6 @@ jobs:
 
       - name: Install Hexo theme if missing
         run: |
-          git clone https://github.com/hexojs/hexo-theme-landscape themes/landscape
           export THEME_DIR=themes/landscape
 
       - name: Generate Hexo site
