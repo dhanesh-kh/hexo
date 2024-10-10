@@ -29,6 +29,12 @@ jobs:
           npx playwright install-deps
           npx playwright install
 
+      - name: Install Hexo theme if missing
+        run: |
+          if [ ! -d "themes/landscape" ]; then
+            git clone https://github.com/hexojs/hexo-theme-landscape themes/landscape
+          fi
+
       - name: Generate site
         run: hexo generate
 
@@ -36,7 +42,7 @@ jobs:
         run: |
           nohup hexo server -p $HEXO_PORT > hexo_server.log 2>&1 &
           sleep 5  # Give the server some time to start
-          
+
       - name: Check if Hexo server is running
         run: |
           for i in {1..10}; do
