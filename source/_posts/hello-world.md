@@ -2,6 +2,7 @@
 title: NJIT Student Marketplace (NJIT Business)
 ---
 
+<a name="introduction"></a>
 ## Introduction
 
 A dedicated platform for NJIT students to buy and sell textbooks, lab coats,
@@ -21,6 +22,7 @@ PC parts, and more — essentially a student-only version of Craigslist.
 5. [Business Function & Industry Relevance](#business-function--industry-relevance)
 6. [Documentation & References](#documentation--references)
 
+<a name="getting-started"></a>
 ### Getting Started
 
 Before diving into the development of the NJIT Student Marketplace,
@@ -30,6 +32,7 @@ These tools not only streamline the development process
 but are also widely used across the tech industry,
 making them essential skills to have.
 
+<a name="why-learn-git"></a>
 #### Why Learn Git?
 
 Git is a version control system that allows developers
@@ -38,6 +41,7 @@ and maintain a clean and organized workflow.
 Using Git and platforms like GitHub makes it easy to manage project history,
  share code with teammates, and contribute to open-source projects.
 
+<a name="why-learn-docker"></a>
 #### Why Learn Docker?
 
 Docker enables developers to create isolated environments called containers,
@@ -48,6 +52,7 @@ about system configurations or compatibility issues.
 
 ---
 
+<a name="environment-preparation"></a>
 ### Environment Preparation
 
 Now that you understand the importance of these tools,
@@ -68,6 +73,7 @@ follow the steps below to set them up:
 
 ---
 
+<a name="system-foundations"></a>
 ### System Foundations
 
 Foundational topics like operating systems, virtualization,
@@ -81,6 +87,7 @@ and containerization.
   Best practices for building scalable, maintainable,
   and portable applications following the 12-Factor methodology.
 
+<a name="architecture--scaling"></a>
 ### Architecture & Scaling
 
 Topics related to system architecture and scaling.
@@ -90,6 +97,7 @@ Topics related to system architecture and scaling.
 - [Scaling](scaling)  
   Best practices and strategies for scaling applications efficiently.
 
+<a name="business-function--industry-relevance"></a>
 ### Business Function & Industry Relevance
 
 Exploring the role of Docker and Kubernetes in
@@ -104,6 +112,7 @@ driving business operations and enhancing industry practices.
 
 ---
 
+<a name="documentation--references"></a>
 ### Documentation & References
 
 - [Documentation](documentation)  
