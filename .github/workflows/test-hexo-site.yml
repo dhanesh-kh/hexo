@@ -25,14 +25,12 @@ jobs:
       - name: Set up Hexo and install dependencies
         run: |
           npm install -g hexo-cli
-          cd ./readme
           npm install
           npx playwright install-deps
           npx playwright install
 
       - name: Generate site and start Hexo server
         run: |
-          cd ./readme
           hexo generate
           hexo server -p $HEXO_PORT &
 
@@ -58,19 +56,17 @@ jobs:
       - name: Set up Hexo and install dependencies
         run: |
           npm install -g hexo-cli
-          cd ./readme
           npm install
 
       - name: Generate Hexo site
         run: |
-          cd ./readme
           hexo generate
 
       - name: Add .nojekyll file
-        run: touch ./readme/public/.nojekyll
+        run: touch ./public/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./readme/public
+          publish_dir: ./public
