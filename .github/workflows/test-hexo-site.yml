@@ -54,7 +54,7 @@ jobs:
           cd playwright
           npm install
           npx playwright install
-          npx playwright test --config=$PLAYWRIGHT_CONFIG
+          npx playwright test  ./tests/hexo_test.spec.js -- headed
 
       - name: Display Hexo server log (for debugging)
         if: failure() # Show logs only if the test fails
