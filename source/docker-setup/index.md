@@ -7,9 +7,9 @@ Docker setup involves creating a Docker Hub account, installing Docker Desktop,
 and looking at prerequisites for Windows and/or macOS.
 
 ## Prerequisites
-
-Ensure Docker and Docker Compose are installed on your computer.
-Follow the instructions for your specific operating system:
+<p id ="prereqs">
+<ins>Ensure</ins> Docker and Docker Compose are installed on your computer.
+Follow the instructions for your specific operating system:</p>
 
 - [Windows Installation](#installation-windows)
 - [macOS Installation](#installation-macos)
