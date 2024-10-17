@@ -3,8 +3,8 @@ title: What is Vertical & Horizontal Scaling in Docker?
 date: 2024-10-09 23:04:45
 ---
 
-- Scaling is adjusting the number of containers or the power of a machine
-to balance loads for particular tasks or projects.
+- Scaling is adjusting the <ins>number</ins> of containers or the power of a machine
+to <ins>balance</ins> loads for particular tasks or projects.
 
 - **Vertical Scaling** means adding more power to your current machines
 by upgrading hardware components to improve capabilities.

@@ -20,9 +20,9 @@ track changes, and review code efficiently.
    if you don't already have one.
 
 ## Cloning a Repository
-
-To work with an existing repository, you need to clone it to your local machine:
-
+<p id ="local">
+To work with an existing repository, you need to clone it to your <strong> local </strong> machine:
+</p>
 ```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
