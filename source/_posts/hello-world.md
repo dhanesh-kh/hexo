@@ -4,7 +4,7 @@ title: NJIT Student Marketplace (NJIT Business)
 
 <a name="introduction"></a>
 ## Introduction
-<p id="Intro">A dedicated platform for NJIT students to buy and sell textbooks, lab coats,PC parts, and more — essentially a student-only version of Craigslist.</p>
+<p id="Intro">A dedicated platform for NJIT students to <strong>buy and sell</strong> textbooks, lab coats,PC parts, and more — essentially a student-only version of Craigslist.</p>
 
 
 ## Guidelines for Development and Deployment
